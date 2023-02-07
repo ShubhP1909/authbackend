@@ -80,7 +80,7 @@ router.post('/login', (req, res) => {
     })
 })
 
-router.get('/admin', verifyToken, (req, res) => {
+router.get('/admin', (req, res) => {
     let admin = [
         {
             "id": 1,
