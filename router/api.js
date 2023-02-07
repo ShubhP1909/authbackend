@@ -15,7 +15,6 @@ mongoose.connect(db, err => {
 })
 
 function verifyToken(req, res, next) {
-    res.set('Access-Control-Allow-Origin', 'https://authbackend-i4x1.onrender.com');
     if (!req.headers.authorization) {
         return res.status(401).send('Unauthorized token')
     }
@@ -45,7 +44,6 @@ router.get('/', (req, res) => {
 });
 
 router.post('/register', (req, res) => {
-    res.set('Access-Control-Allow-Origin', 'https://authbackend-i4x1.onrender.com');
     let userData = req.body
     let user = new User(userData)
     user.save((error, regesteredUser) => {
@@ -60,7 +58,6 @@ router.post('/register', (req, res) => {
 })
 
 router.post('/login', (req, res) => {
-    res.set('Access-Control-Allow-Origin', 'https://authbackend-i4x1.onrender.com');
     let userData = req.body
 
     User.findOne({ email: userData.email }, (error, user) => {
@@ -84,7 +81,6 @@ router.post('/login', (req, res) => {
 })
 
 router.get('/admin', verifyToken, (req, res) => {
-    res.set('Access-Control-Allow-Origin', 'https://authbackend-i4x1.onrender.com');
     let admin = [
         {
             "id": 1,
