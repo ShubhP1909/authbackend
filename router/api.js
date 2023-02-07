@@ -4,7 +4,7 @@ const router = express.Router();
 const User = require("../models/user");
 const mongoose = require("mongoose");
 
-const db = 'mongodb://localhost:27017/Auth'
+const db = 'mongodb://127.0.0.1:27017/Auth'
 
 mongoose.connect(db, err => {
     if (err) {
